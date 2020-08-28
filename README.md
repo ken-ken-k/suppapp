@@ -1,24 +1,73 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリ名
+SUPPAPP
 
-Things you may want to cover:
+# 概要
+このアプリケーションではおすすめのサプリメントを共有するのことのできるアプリケーションです。詳細を文章で説明し、画像付きで投稿が可能なのでわかりやすく自分のおすすめのサプリメントを紹介できます。
 
-* Ruby version
+# 制作背景　（意図）
+自分は筋肉トレーニングを行なっていてトレーニング仲間とよく話すことはどのようなサプリメントを飲んでいるかといった話が多いです。
+そこでサプリの紹介のみにフォーカスするアプリを作ることにより他の人がどのようなサプリメントを飲んでいて、どのような感想を持っているのかが分かることにより、自分の知らないサプリメントに出会え、筋力トレーニングのパフォーマンス向上にも繋がるのではないかと思い制作しました。
 
-* System dependencies
+# DEMO
+トップページ一覧
+![a](https://user-images.githubusercontent.com/67785156/91548943-29c38380-e961-11ea-9507-d456ccb05ed2.jpg)
 
-* Configuration
+新規登録ページ
+<img width="1673" alt="b" src="https://user-images.githubusercontent.com/67785156/91553424-55963780-e968-11ea-867c-953a4c231341.png">
 
-* Database creation
+サプリ一覧
+<img width="1646" alt="c" src="https://user-images.githubusercontent.com/67785156/91553536-8aa28a00-e968-11ea-9be3-90c01354534c.png">
 
-* Database initialization
+マイページ
+<img width="1506" alt="d" src="https://user-images.githubusercontent.com/67785156/91553697-cfc6bc00-e968-11ea-858e-4d340a02c2b1.png">
 
-* How to run the test suite
+# 工夫したポイント
+私は技術、理解度ともに高くはないので学校で習ったことの復讐として今回のアプリを制作しました。
+ビューはbulmaを利用しより簡易的に早く綺麗に作りました。
+基本のアクションをしっかりと抑え綺麗に作ることを意識しました。
 
-* Services (job queues, cache servers, search engines, etc.)
+## 使用技術
+#　バックエンド
+Ruby, Ruby on Rails
 
-* Deployment instructions
+# フロント
+bulma, HTML
 
-* ...
+# データベース
+MySQL
+
+# ソース管理
+GitHub
+
+# エディタ
+VSCode
+
+# 今後の課題
+今後は基本的な機能に加えajaxでの処理やjavascriptを用いて、今回のアプリにより多くの実装をしていくと共に、違うアプリの制作についても積極的に行なっていきたいと思います。
+フロント、サーバーどちらも行えるようになりたいと思います。
+
+
+## users
+|Column|Type|Options|
+|------|----|-------|
+|username|string|null:false|
+|email|string|null: false, default: ""|
+|encrypted_password|string|null: false, default:""|
+|reset_password_token|string|null: false|
+|profile|text||
+|profile_image_id|string||
+### Association
+- has_many :supplements
+
+
+## supplements
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|foreign_key: true|
+|title|string|null: false|
+|body|text|null: false|
+|image_id|string|null: false|
+### Association
+- belongs_to :user
