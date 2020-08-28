@@ -55,6 +55,9 @@
                 <p class="control">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-dark" %>
                 </p>
+                <p class="control">
+                  <%= link_to "検索画面へ", search_supplements_path, method: :get, class: "button is-dark" %>
+                </p>
             </div>
            </div>
         </div>
@@ -76,6 +79,9 @@
              <p class="control">
                <%= link_to "新規登録", new_user_registration_path, class: "button is-dark" %>
              </p>
+             <p class="control">
+               <%= link_to "検索画面へ", search_supplements_path, method: :get, class: "button is-dark" %>
+             </p>
            </div>
          </div>
        </div>
@@ -86,4 +92,3 @@
     <%= yield %>
   </body>
 </html>
-       

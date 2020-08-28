@@ -38,6 +38,16 @@ class SupplementsController < ApplicationController
     end
   end
 
+  def destroy
+    supplement = Supplement.find(params[:id])
+    supplement.destroy
+    redirect_to user_path(supplement.user), notice: "レシピを削除しました。"
+  end
+
+  def search
+    @supplements = Supplement.search(params[:keyword])
+  end
+
   private
   def  supplement_params
      params.require(:supplement).permit(:title, :body, :image)
